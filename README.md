@@ -13,14 +13,17 @@
 
 
 ##Description of the app
-Find the restaurants you like in your area by name of restaurant, city or zipcode (available cities to search in for now: Seattle, LA and NY). App buit on Yelp API.
+Find the restaurants you like in your area by name of restaurant, city or zipcode 
+(available cities to search in for now: Seattle, LA and NY). 
+App based on Yelp API.
 
 ##MVP goals
+ - User can Sign up/ Log in and Log out
  - Input field to query serch
  - Favorite list of restaurants section
- - User can sign up/ login and log out
-
-
+ - Add comments section
+ 
+ 
 ##Stretch goals
  - User can search restaurants by name, location, zipcode or food type
  - User can share the link of favorite restaurants on social media
