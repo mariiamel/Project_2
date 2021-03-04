@@ -10,13 +10,13 @@ sequelize init
 
 sequelize db:create
 
-npm i ejs, morgan express-ejs-layouts, cookie-parser, crypto-js, axios
+npm i ejs, morgan express-ejs-layouts, cookie-parser, crypto-js, axios, method-override
 
-sequelize model:generate --name=user --attributes username:text,email:text,password:integer
+sequelize model:generate --name=user --attributes username:text,email:text,password:text
 
-sequelize model:generate --name=coffeshop --attributes name:text,adress:text,rating:integer,phone:string,img:string
+sequelize model:generate --name=coffeeshop --attributes name:text,address:text,rating:integer,phone:string,img:string,yelpId:text
 
-sequelize model:generate --name=users_coffeshop --attributes userId:integer,coffeshopId:integer,comment:string
+sequelize model:generate --name=users_coffeeshop --attributes userId:integer,coffeeshopId:integer,comment:string
 
 sequelize db:migrate
 
@@ -25,7 +25,7 @@ Executing (default): INSERT INTO "coffeshops" ("id","name","createdAt","updatedA
 Created:  Starbucks
 
 node dbTest.js
-Executing (default): SELECT "id", "name", "adress", "rating", "phone", "img", "createdAt", "updatedAt" FROM "coffeshops" AS "coffeshop" WHERE "coffeshop"."name" = 'Starbucks' LIMIT 1;
+Executing (default): SELECT "id", "name", "address", "rating", "phone", "img", "createdAt", "updatedAt" FROM "coffeshops" AS "coffeshop" WHERE "coffeshop"."name" = 'Starbucks' LIMIT 1;
 Found:  Starbucks
 
 nodemon
@@ -39,6 +39,3 @@ Log in, Sign up and Log out
 Routes
 
 Add association between tables
-
-
-
