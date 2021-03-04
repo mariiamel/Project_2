@@ -1,0 +1,10 @@
+<h1>My favorite coffeeshops:</h1>
+
+<% coffeeshops.forEach(coffeeshop=> { %>
+    <div class="card">
+        <a href="/coffeeshops/<%= coffeeshop.name %>">
+            <%= coffeeshop.name %>
+            <img src="<%= coffeeshop.image_url %> "/>
+        </a>
+    </div>
+<% }) %>

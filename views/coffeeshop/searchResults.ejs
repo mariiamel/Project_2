@@ -1,0 +1,13 @@
+<h1>Coffeeshops:</h1>
+
+<%  coffeeshops.forEach(coffeeshop => { %>
+    <div>
+        <img src="<%= coffeeshop.image_url %> " class="coffeeshopImg"/>
+        <h3><%= coffeeshop.name %></h3>
+        
+        <form action="/coffeeshops" method="POST">
+            <input type="hidden" name="name" value="<%= coffeeshop.name %> ">
+            <input type="submit" value="Add to favorites">
+        </form>
+    </div>
+<% }) %> 
