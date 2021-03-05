@@ -56,20 +56,25 @@ app.get('/', async (req, res) => {
 
 
 app.get('/search', async (req, res) => {
- try{
-    const config = {
-        headers: {
-          'Authorization': process.env.token
-        }
+    if (!req.query.location) {
+        res.render('index')
+        return
     }
-    const YelpURL = `https://api.yelp.com/v3/businesses/search?term=coffee_bakeries_coffeeshops&location=${req.query.location}`
-    const response = await axios.get(YelpURL, config)
-    const coffeeshops = response.data.businesses
-    // console.log(coffeeshops [0])
-    res.render('coffeeshop/searchResults', { coffeeshops: coffeeshops })
- }catch(err) {
-    console.log(err)
- }
+    try{
+        const config = {
+            headers: {
+            'Authorization': process.env.token
+            }
+        }
+        const defaultTerm = req.query.term || 'coffee_bakeries_coffeeshops'
+        const YelpURL = `https://api.yelp.com/v3/businesses/search?term=${defaultTerm}&location=${req.query.location}`
+        const response = await axios.get(YelpURL, config)
+        const coffeeshops = response.data.businesses
+        // console.log(coffeeshops [0])
+        res.render('coffeeshop/searchResults', { coffeeshops: coffeeshops })
+    }catch(err) {
+        console.log(err)
+    }
 }) 
 
 

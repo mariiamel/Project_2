@@ -14,7 +14,7 @@ nav{
     padding: 20px;
     margin: 0;
 }
- a:hover{
+ nav a:hover{
     color: rgb(9, 110, 114);
     font-size: large;
  }
@@ -30,20 +30,18 @@ h1{
 
 a{
     text-decoration: none;
-    padding: 15px;
 }
 
 .coffeeshopImg{
+    opacity: 0.8;
     border-radius: 50%;
     width: 150px;
     height: 150px;
 }
 
-/* .coffeeshopImg:hover{
-    border-radius: 50%;
-    width: 160px;
-    height: 160px;
-} */
+.coffeeshopImg:hover{
+    opacity: 1;
+}
 
 
 .imgDetailsPage{
@@ -73,8 +71,38 @@ a{
 }
 
 .search{
-  width: 170px; 
-  height: 40px;
-  border-radius: 20%; 
+    text-align: center;
+    margin: 15px;
+    width: 170px; 
+    height: 40px;
 }
 
+.submitBut{
+    width: 100px; 
+    height: 40px;
+}
+
+.favoriteButt{
+    margin-bottom: 15px;
+}
+
+.nameOfCoff{
+    color: white;
+}
+
+.delete{
+    text-align: center;
+    border: 1px solid rgb(255, 191, 191);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    width: 120px;
+    height: 30px;
+}
+
+.delete:hover{
+    background-color: rgb(255, 238, 238);
+}
+
+.results a:hover{
+    color: rgb(0, 99, 102);
+}
