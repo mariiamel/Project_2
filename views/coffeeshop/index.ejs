@@ -1,14 +1,17 @@
 <h1>My favorite coffeeshops:</h1>
-<a href="/coffeeshops">Back to search</a>
 
-<% coffeeshops.forEach(coffeeshop=> { %>
-    <div class="card">
-        <a href="/coffeeshops/<%= coffeeshop.id %>?yelpId=<%= coffeeshop.yelpId %>  ">
-            <%= coffeeshop.name %>
-            <img src="<%= coffeeshop.image_url %> "/>
+<div class="results">
+    <% coffeeshops.forEach(coffeeshop=> { %>
+        <div>
+        <img src="<%= coffeeshop.img %>" class="coffeeshopImg"/>
+        <a href="/coffeeshops/<%= coffeeshop.id %>?yelpId=<%= coffeeshop.yelpId %> ">
+            <h3><%= coffeeshop.name %></h3>
         </a>
+         
         <form method="POST" action="/coffeeshops/<%= coffeeshop.id %>?_method=DELETE">
-            <input type="submit" value="Delete"> 
+        <input type="submit" value="Delete"> 
+
         </form>
-    </div>
-<% }) %>
+        </div>
+    <% }) %>
+</div>

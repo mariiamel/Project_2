@@ -23,7 +23,7 @@ App based on Yelp API (https://www.yelp.com/developers/documentation/v3/get_star
  - Add comments section
 
 ##Stretch goals
- - User can search coffeshops by name, location, zipcode or food type
+ - User can search coffeshops by name or location
  - User can share the link of favorite coffeshops on social media
 
 ##User Stories

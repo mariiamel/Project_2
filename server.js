@@ -1,4 +1,3 @@
-
 /* Required Modules and Variables */
 require('dotenv').config()
 const express = require('express')
@@ -26,21 +25,17 @@ app.use(methodOverride('_method'))
 // Adds the user to res.locals.user if there's a cookie
 app.use(async (req, res, next) => {
     if (req.cookies.userId) {
-        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, process.env.COOKIE_SECRET).toString(cryptoJS.enc.Utf8)
-        
+        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, process.env.COOKIE_SECRET).toString(cryptoJS.enc.Utf8) 
         // console.log(decryptedId);
-        // await db.user.findByPk(decryptedId)
         const user = await db.user.findOne({
             where: {
                 id: decryptedId
             }
         })
-        
         res.locals.user = user
     } else {
         res.locals.user = null
     }
-    
     next()
 })
 
@@ -67,7 +62,7 @@ app.get('/search', async (req, res) => {
           'Authorization': process.env.token
         }
     }
-    const YelpURL = 'https://api.yelp.com/v3/businesses/search?term=coffee_bakeries_coffeeshops&location=Seattle'
+    const YelpURL = `https://api.yelp.com/v3/businesses/search?term=coffee_bakeries_coffeeshops&location=${req.query.location}`
     const response = await axios.get(YelpURL, config)
     const coffeeshops = response.data.businesses
     // console.log(coffeeshops [0])

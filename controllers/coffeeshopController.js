@@ -2,7 +2,8 @@ const router = require('express').Router()
 const db = require('../models')
 const { default: axios } = require('axios')
 
-//show all favorite coffeeshops???
+
+//show all favorite coffeeshops
 router.get('/', async (req, res) => {
     if(!res.locals.user) {
         res.redirect('/auth/login')
@@ -12,7 +13,6 @@ router.get('/', async (req, res) => {
                 where: { id: res.locals.user.id }, 
                 include: db.coffeeshop
             })
-    
             // console.log(user)
             res.render('coffeeshop/index', { coffeeshops: user.dataValues.coffeeshops } )
         } catch (err) {
@@ -32,16 +32,10 @@ router.post('/', async (req, res) => {
         if (!coffeeshop) {
             coffeeshop = await db.coffeeshop.create({
                 name: req.body.name,
+                img: req.body.img,
                 yelpId: req.body.yelpId
             })
         }
-        // const [newCoffeeshop, created] = await db.coffeeshop.findOrCreate({
-        //     where: { 
-        //         name: req.body.name,
-        //         yelpId: req.body.yelpId
-        //     }
-        // })
-        console.log(coffeeshop);
         res.locals.user.addCoffeeshop(coffeeshop);
         res.redirect(`/coffeeshops`)
     } catch (err) {
@@ -69,15 +63,32 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+// GET /favorite - READ all faves
+// router.get('/', async (req, res) => {
+//     try {
+//       const coffeeshopFav =  await db.coffeeshop.findAll()
+//       res.render('coffeeshop/index', { coffeeshopFav })
+//     } catch (error) {
+//       console.log(error)
+//     }
+// })
+
 // Delete coffeeshop from fav
 router.delete('/:id', async (req, res) => {
     try{
-        console.log('this is delete route')
         const coffeeshop = await db.coffeeshop.findByPk(req.params.id)
         const deletedCoffeeshop = await coffeeshop.destroy();
-        res.redirect('/coffeeshops');
+        const user = await db.user.findOne({
+            where: { id: res.locals.user.id }, 
+            include: db.coffeeshop
+        })
+        if (user.coffeeshops.length == 0) {
+            res.redirect('/')
+        } else{
+            res.redirect('/coffeeshops');
+        }
     }catch (err) {
-            console.log(err)
+        console.log(err)
     }
 })
 
