@@ -56,22 +56,13 @@ router.get('/:id', async (req, res) => {
         const coffeeshopApiUrl = `https://api.yelp.com/v3/businesses/${yelpId}`
         const response = await axios.get(coffeeshopApiUrl, config)
         const coffeeshop = response.data
-
+        console.log(coffeeshop)
         res.render('coffeeshop/show', { coffeeshop: coffeeshop })
     } catch (err) {
         console.log(err)
     }
 })
 
-// GET /favorite - READ all faves
-// router.get('/', async (req, res) => {
-//     try {
-//       const coffeeshopFav =  await db.coffeeshop.findAll()
-//       res.render('coffeeshop/index', { coffeeshopFav })
-//     } catch (error) {
-//       console.log(error)
-//     }
-// })
 
 // Delete coffeeshop from fav
 router.delete('/:id', async (req, res) => {
@@ -91,6 +82,7 @@ router.delete('/:id', async (req, res) => {
         console.log(err)
     }
 })
+
 
 
 module.exports = router

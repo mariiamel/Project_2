@@ -3,8 +3,12 @@
 <div class="results">
     <%  coffeeshops.forEach(coffeeshop => { %>
         <div class="gridDiv">
-        <img src="<%= coffeeshop.image_url %>" class="coffeeshopImg"/>
-        <h3 class="nameOfCoff"><%= coffeeshop.name %></h3>
+            
+        <a href="/coffeeshops/<%= coffeeshop.id %>?yelpId=<%= coffeeshop.yelpId %>">
+            <img src="<%= coffeeshop.image_url %>" class="coffeeshopImg"/>
+            <h3><%= coffeeshop.name %></h3>
+        </a>
+        <h5 class="nameOfCoff"><%= coffeeshop.location.display_address %></h5>
         
         <form action="/coffeeshops" method="POST">
             <input type="hidden" name="name" value="<%= coffeeshop.name %>">

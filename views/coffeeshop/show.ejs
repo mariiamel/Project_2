@@ -9,3 +9,11 @@
 <form method="POST" action="/coffeeshops/<%= coffeeshop.id %>/?_method=DELETE">
     <input type="submit" value="🗑 from favorite" class="delete"> 
 </form>
+
+<form method="POST" action="/coffeeshops/<%= coffeeshop.id %>/?_method=PUT">
+    <h3>Leave the notes for yourself about these coffeeshop here:</h3>
+    <input type="text" value="your notes" class="notesInput">
+    <input type="submit" value="submit" class="notesButt">
+</form>
+
+

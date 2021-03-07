@@ -57,6 +57,7 @@ app.get('/', async (req, res) => {
 
 app.get('/search', async (req, res) => {
     if (!req.query.location) {
+        // alert('Please choose the location')
         res.render('index')
         return
     }
@@ -66,8 +67,9 @@ app.get('/search', async (req, res) => {
             'Authorization': process.env.token
             }
         }
-        const defaultTerm = req.query.term || 'coffee_bakeries_coffeeshops'
-        const YelpURL = `https://api.yelp.com/v3/businesses/search?term=${defaultTerm}&location=${req.query.location}`
+        // const defaultTerm = req.query.term || 'coffee'
+        const defaultTerm = req.query.term 
+        const YelpURL = `https://api.yelp.com/v3/businesses/search?term=${defaultTerm}&location=${req.query.location}&categories=coffee`
         const response = await axios.get(YelpURL, config)
         const coffeeshops = response.data.businesses
         // console.log(coffeeshops [0])
