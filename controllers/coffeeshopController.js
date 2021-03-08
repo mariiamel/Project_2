@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const db = require('../models')
 const { default: axios } = require('axios')
+// const AES = require('crypto-js/aes')
+const cryptoJS = require('crypto-js')
 
 
 //show all favorite coffeeshops
@@ -83,6 +85,68 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+
+// Delete coffeeshop from fav
+// router.delete('/:id', async (req, res) => {
+//     try{
+//         console.log(req.params)
+//         const decryptedId = cryptoJS.AES.decrypt(res.locals.user.id, process.env.COOKIE_SECRET).toString(cryptoJS.enc.Utf8) 
+//         const coffeeshop = await db.users_coffeeshop.destroy({
+//             where: {
+//                 coffeeshopId: req.params.id,
+//                 userId: decryptedId
+//             }
+//         })
+//         // const deletedCoffeeshop = await coffeeshop.destroy();
+//         const user = await db.user.findOne({
+//             where: { id: res.locals.user.id }, 
+//             include: db.coffeeshop
+//         })
+//         if (user.coffeeshops.length == 0) {
+//             res.redirect('/')
+//         } else{
+//             res.redirect('/coffeeshops');
+//         }
+//     }catch (err) {
+//         console.log(err)
+//     }
+// })
+
+
+// // Delete coffeeshop from fav
+// router.delete('/:id', async (req, res) => {
+//     try{
+//         // const coffeeshop = await db.coffeeshop.findByPk(req.params.id)
+//         // res.locals.user.removeCoffeeshop(coffeeshop)
+//         const coffeeshop = await db.coffeeshop.findByPk(req.params.id)
+//         const deletedCoffeeshop = await coffeeshop.destroy();
+//         const user = await db.user.findOne({
+//             where: { id: res.locals.user.id }, 
+//             include: db.coffeeshop
+//         })
+//         if (user.coffeeshops.length == 0) {
+//             res.redirect('/')
+//         } else{
+//             res.redirect('/coffeeshops');
+//         }
+//     }catch (err) {
+//         console.log(err)
+//     }
+// })
+
+// router.delete('/:id', async (req, res) => {
+//     try {
+//         const coffeeshop = await db.coffeeshop.findByPk(req.params.id)
+//         res.locals.user.removeCoffeeshop(coffeeshop)
+//         if (user.coffeeshops.length == 0) {
+//     res.redirect('/')
+// } else{
+//     res.redirect('/coffeeshops');
+// }
+//     } catch(error) {
+//         console.log(error)
+//     }
+// })
 
 
 module.exports = router
