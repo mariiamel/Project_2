@@ -12,8 +12,7 @@
 - RESTful routing chart
 
 ##Description of the app
-Find the coffeshops you like in your area by name of coffeshop, city or zipcode 
-(available cities to search in for now: Seattle, LA and NY). 
+Find the coffeshops you like in your area by name of coffeshop. 
 App based on Yelp API (https://www.yelp.com/developers/documentation/v3/get_started).
 
 ##MVP goals
