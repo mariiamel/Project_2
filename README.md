@@ -11,22 +11,26 @@
 - ERDs
 - RESTful routing chart
 
-##Description of the app
+## Description of the app
 Find the coffeshops you like in your area by name of coffeshop, city or zipcode 
 (available cities to search in for now: Seattle, LA and NY). 
 App based on Yelp API (https://www.yelp.com/developers/documentation/v3/get_started).
 
-##MVP goals
- - User can Sign up/ Log in and Log out
- - Input field to query serch
- - Favorite list of coffeshops section
- - Add comments section
+## LIVE: 
+https://second-project-coffeeme.herokuapp.com/ 
 
-##Stretch goals
- - User can search coffeshops by name or location
+## MVP goals
+ - Sign up/ Log in and Log out
+ - Search for coffeeshops by location ans  name of coffeeshop
+ - Add to favorite list
+ - Add comments about coffeeshops
+
+## Stretch goals
+ - Forgot your password option
+ - Generate random quotes about coffee and also add them to favorite list
  - User can share the link of favorite coffeshops on social media
 
-##User Stories
+## User Stories
 
  1. User can submit the query and get corresponding data (Title, Adress and IMG)
  2. User can see the list of items appearing on the page with title and img
@@ -34,7 +38,7 @@ App based on Yelp API (https://www.yelp.com/developers/documentation/v3/get_star
  4. User will be able add (or delete) coffeshop to favorite list
  5. User can sign up/ login and log out
 
-##Daily Sprints
+## Daily Sprints
 
 Monday:
 test API
@@ -61,14 +65,14 @@ Sunday:
 stretch goals
 
  
-##Wireframes
+## Wireframes
 
 
-##ERDs
+## ERDs
 ![ERD](./wireframes/ERDs.png) 
 
 
-##RESTful routing chart
+## RESTful routing chart
 
  Method |        URL        |     Functionality     |            View
 --------|-------------------|-----------------------|---------------------------------
