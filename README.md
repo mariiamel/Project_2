@@ -1,6 +1,8 @@
 
 # CoffeeMe
 
+https://second-project-coffeeme.herokuapp.com/
+
 ## Topics
 - Description of the app
 - MVP Goals
@@ -15,9 +17,6 @@
 Find the coffeshops you like in your area by name of coffeshop, city or zipcode 
 (available cities to search in for now: Seattle, LA and NY). 
 App based on Yelp API (https://www.yelp.com/developers/documentation/v3/get_started).
-
-## LIVE: 
-https://second-project-coffeeme.herokuapp.com/ 
 
 ## MVP goals
  - Sign up/ Log in and Log out
